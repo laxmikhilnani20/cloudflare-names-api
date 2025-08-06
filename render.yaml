@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: cloudflare-names-api
+    env: docker
+    repo: https://github.com/laxmikhilnani20/cloudflare-names-api.git
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: CLOUDFLARE_API_TOKEN
+        sync: false
+      - key: CLOUDFLARE_ACCOUNT_ID
+        sync: false
+    healthCheckPath: /
+    numInstances: 1
